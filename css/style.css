@@ -373,14 +373,21 @@ img {
 }
 
 /* ===========================
-   Content Page (pages/**/index.html)
+   Content Page (pages/.../index.html)
    =========================== */
 
-.breadcrumb {
+/* .breadcrumb, .page-header and .page-content share a single centered
+   ancestor (.content-main) so their left edges are guaranteed to line up,
+   instead of each independently re-centering with its own max-width + margin auto. */
+.content-main {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 20px 24px 0;
-  font-size: 17px;
+  padding: 0 24px;
+}
+
+.breadcrumb {
+  padding: 20px 0 0;
+  font-size: 10.2px;
   color: var(--text-dim);
 }
 
@@ -389,9 +396,7 @@ img {
 }
 
 .page-header {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 24px 24px 32px;
+  padding: 24px 0 32px;
 }
 
 .page-icon {
@@ -414,9 +419,7 @@ img {
 }
 
 .page-content {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 24px 80px;
+  padding: 0 0 80px;
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 32px;
